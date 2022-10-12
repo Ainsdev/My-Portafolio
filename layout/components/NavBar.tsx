@@ -1,6 +1,6 @@
 const NavBar = () => {
     return (
-        <nav className='sticky top-0 right-0 z-10 w-full h-full'>
+        <nav className='sticky top-0 right-0 z-50 w-full h-full'>
             <div className='bg-primary absolute right-0 z-40 p-6 w-72 rounded-b-3xl text-center flex gap-3'>
                 <p>==</p>
                 <h1 className='font-semibold w-full'>Guilad | Web Developer</h1>
