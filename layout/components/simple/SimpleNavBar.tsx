@@ -14,7 +14,7 @@ const SimpleNavBar = () => {
                 </svg>
             </div>
             <div className='bg-accent-2 absolute left-0 z-40 px-8 py-3 rounded-br-3xl text-center text-black hover:translate-x-3 ease-in-out transition-transform cursor-pointer'>
-                <Link href='/' className='font-semibold w-full underline text-lg'><h1 className='font-semibold underline w-full text-lg'>Complete Portfolio</h1></Link>
+                <Link href='/' className='font-semibold w-full underline text-lg'><h1 className='font-semibold underline w-full text-lg'>Amazing Portfolio</h1></Link>
             </div>
             <Link href='/contact'>
                 <div className='bg-primary absolute left-0 z-10 px-8 py-3 rounded-br-3xl text-center text-black top-12 hover:translate-x-3 ease-in-out transition-transform cursor-pointer'>

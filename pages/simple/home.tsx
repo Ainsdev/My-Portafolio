@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import ProjectItem from '../../layout/components/simple/SimpleProject'
 import SkillItem from '../../layout/components/simple/SkillItem'
 import SimpleLayout from '../../layout/layouts/SimpleLayout'
+import { FaReact } from 'react-icons/fa';
 
 const Home: NextPage = () => {
 
@@ -36,11 +37,68 @@ const Home: NextPage = () => {
                 </div>
                 <section className='pt-20 flex flex-col justify-center items-center'>
                     <h1 className='font-bold sm:text-4xl text-2xl text-accent'>Projects</h1>
-                    <div className='sm:flex-row flex  flex-col gap-8 pt-16'>
-                        <ProjectItem title='asd' description={''} technologies={[]} code={''} demo={''}/>
-                        <ProjectItem title='asd' description={''} technologies={[]} code={''} demo={''}/>
-                        <ProjectItem title='asd' description={''} technologies={[]} code={''} demo={''}/>
+                    <div className='flex-row flex gap-8  w-screen overflow-hidden py-16 overflow-x-auto px-5 sm:px-20 sm:overflow-visible sm:overflow-x-hidden sm:flex-wrap sm:justify-center sm:items-center'>
+                        <ProjectItem title='Tesla Web Sample' description={'Similar UI to tesla web'} technologies={[
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                        ]} code={''} demo={''} />
+                        <ProjectItem title='Tesla Web Sample' description={'Similar UI to tesla web'} technologies={[
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                        ]} code={''} demo={''} />
+                        <ProjectItem title='Tesla Web Sample' description={'Similar UI to tesla web'} technologies={[
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                        ]} code={''} demo={''} />
+                        <ProjectItem title='Tesla Web Sample' description={'Similar UI to tesla web'} technologies={[
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                        ]} code={''} demo={''} />
+                        <ProjectItem title='Tesla Web Sample' description={'Similar UI to tesla web'} technologies={[
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                        ]} code={''} demo={''} />
+                        <ProjectItem title='Tesla Web Sample' description={'Similar UI to tesla web'} technologies={[
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                        ]} code={''} demo={''} />
+                        <ProjectItem title='Tesla Web Sample' description={'Similar UI to tesla web'} technologies={[
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                        ]} code={''} demo={''} />
+                        <ProjectItem title='Tesla Web Sample' description={'Similar UI to tesla web'} technologies={[
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                            { name: '', icon: <FaReact className='w-8 h-8'/> },
+                        ]} code={''} demo={''} />
+                        
                     </div>
+                </section>
+                <section className='flex flex-col justify-center items-center'>
+                    <h1 className='font-bold sm:text-4xl text-2xl text-accent'>Certificates</h1>
                 </section>
             </main>
         </SimpleLayout>

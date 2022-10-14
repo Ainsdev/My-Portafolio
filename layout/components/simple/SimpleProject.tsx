@@ -1,21 +1,62 @@
 import React from 'react';
 
+interface tech {
+    name: string;
+    icon: React.ReactNode
+}
 interface ProjectProps {
     title: string;
     description: string;
-    technologies: Array<string>;
+    technologies: Array<tech>;
     code: string
     demo: string
 }
 
 const ProjectItem: React.FC<ProjectProps> = (props) => {
     return (
-        <article className='flex bg-accent w-full px-24 rounded-xl h-16 justify-start items-center gap-2'>
-            <h1 className='text-xl text-black font-semibold'>TESLA PROJECT</h1>
-            <div className='flex gap-3 h-full justify-center items-center'>
-                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M16 3.383l-.924-.383-7.297 17.617.924.383 7.297-17.617zm.287 3.617l6.153 4.825-6.173 5.175.678.737 7.055-5.912-7.048-5.578-.665.753zm-8.478 0l-6.249 4.825 6.003 5.175-.679.737-6.884-5.912 7.144-5.578.665.753z" /></svg>
-                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12.02 0c6.614.011 11.98 5.383 11.98 12 0 6.623-5.376 12-12 12-6.623 0-12-5.377-12-12 0-6.617 5.367-11.989 11.981-12h.039zm3.694 16h-7.427c.639 4.266 2.242 7 3.713 7 1.472 0 3.075-2.734 3.714-7m6.535 0h-5.523c-.426 2.985-1.321 5.402-2.485 6.771 3.669-.76 6.671-3.35 8.008-6.771m-14.974 0h-5.524c1.338 3.421 4.34 6.011 8.009 6.771-1.164-1.369-2.059-3.786-2.485-6.771m-.123-7h-5.736c-.331 1.166-.741 3.389 0 6h5.736c-.188-1.814-.215-3.925 0-6m8.691 0h-7.685c-.195 1.8-.225 3.927 0 6h7.685c.196-1.811.224-3.93 0-6m6.742 0h-5.736c.062.592.308 3.019 0 6h5.736c.741-2.612.331-4.835 0-6m-12.825-7.771c-3.669.76-6.671 3.35-8.009 6.771h5.524c.426-2.985 1.321-5.403 2.485-6.771m5.954 6.771c-.639-4.266-2.242-7-3.714-7-1.471 0-3.074 2.734-3.713 7h7.427zm-1.473-6.771c1.164 1.368 2.059 3.786 2.485 6.771h5.523c-1.337-3.421-4.339-6.011-8.008-6.771" /></svg>
-            </div>
+        <article className='flex border-accent hover:bg-accent text-white hover:text-black border hover:translate-x-2 rounded-xl h-48 gap-2 sm:h-56'>
+            <div className='flex flex-col justify-center items-center w-56 py-2 sm:w-96'>
+                <div>
+                    <h1 className=' font-bold py-5 text-elipsis sm:text-xl'>{props.title}</h1>
+                </div>
+                <div className='flex justify-center gap-4 items-center w-full rounded-xl h-16 overflow-hidden overflow-x-scroll px-2 sm:overflow-hidden'>
+                    {
+                        props.technologies.map((tech, index) => {
+                            return (
+                                <div key={index} className={tech.name}>
+                                    {tech.icon}
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+                <div className='flex justify-evenly items-center gap-5 pt-5 w-full'>
+                    <a href={props.code} target='_blank' rel='noreferrer' className='rounded-xl px-2 py-1 flex gap-2'>
+                        <p className='underline sm:text-lg sm:font-semibold'>Code</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-code" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <polyline points="7 8 3 12 7 16"></polyline>
+                            <polyline points="17 8 21 12 17 16"></polyline>
+                            <line x1="14" y1="4" x2="10" y2="20"></line>
+                        </svg>
+                    </a>
+                    <a href={props.demo} target='_blank' rel='noreferrer' className='rounded-xl px-2 py-1 flex gap-2'>
+                        <p className='underline sm:text-lg sm:font-semibold'>Web</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-world-www" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M19.5 7a8.998 8.998 0 0 0 -7.5 -4a8.991 8.991 0 0 0 -7.484 4"></path>
+                            <path d="M11.5 3a16.989 16.989 0 0 0 -1.826 4"></path>
+                            <path d="M12.5 3a16.989 16.989 0 0 1 1.828 4.004"></path>
+                            <path d="M19.5 17a8.998 8.998 0 0 1 -7.5 4a8.991 8.991 0 0 1 -7.484 -4"></path>
+                            <path d="M11.5 21a16.989 16.989 0 0 1 -1.826 -4"></path>
+                            <path d="M12.5 21a16.989 16.989 0 0 0 1.828 -4.004"></path>
+                            <path d="M2 10l1 4l1.5 -4l1.5 4l1 -4"></path>
+                            <path d="M17 10l1 4l1.5 -4l1.5 4l1 -4"></path>
+                            <path d="M9.5 10l1 4l1.5 -4l1.5 4l1 -4"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div >
         </article>
     );
 };
