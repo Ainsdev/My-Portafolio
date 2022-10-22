@@ -13,9 +13,14 @@ const WindowTab = () => {
     return (
         <motion.div
         animate={{ x: scroll * 0.2, opacity: 1,rotateZ: scroll * 0.008 }}
-        className="sm:w-[60%] absolute top-1/3 sm:right-16 z-10
-        w-[90%] right-0">
-            <div className="opacity-95 w-full h-10 rounded-t-lg  hover:opacity-100 bg-gray-800 flex justify-end items-center space-x-1.5 px-4">
+            transition={{
+                x: { type: "spring", stiffness: 100 },
+                duration: 0.8,
+                delay: 0.01,
+            }}
+        className="sm:w-[60%] absolute top-1/3 sm:right-16 z-30
+        w-[90%] right-0 cursor-default">
+            <div className="opacity-95 w-full h-10 rounded-t-lg  bg-gray-800 flex justify-end items-center space-x-1.5 px-4">
                 <span className="w-3 h-3 border-2 border-transparent dark:border-green-400 rounded-full bg-green-400 dark:bg-transparent"></span>
                 <span className="w-3 h-3 border-2 border-transparent dark:border-yellow-400 rounded-full bg-yellow-400 dark:bg-transparent"></span>
                 <span className="w-3 h-3 border-2 border-transparent dark:border-red-400 rounded-full bg-red-400 dark:bg-transparent "></span>
@@ -24,7 +29,9 @@ const WindowTab = () => {
                 <div>
                     <h1 className='sm:text-5xl font-bold text-center sm:pb-5 text-2xl'>Welcome to my Portfolio✌️</h1>
                 </div>
-                <HomeButton title='Minimalist' link='/simple/home' description='More Simple Portafolio' color='bg-accent' />
+                <div className='z-50'>
+                    <HomeButton title='Minimalist' link='/simple/home' description='More Simple Portafolio' color='bg-accent' />
+                </div>
                 <HomeButton title='Contact Me' link='/' description='I Answer quickly :)' color='bg-white' />
                 <div className='absolute bottom-0 right-0 w-28 h-8 bg-blue-300 rounded-tl-xl flex justify-center items-center gap-3 '>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
