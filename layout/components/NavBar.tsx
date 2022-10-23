@@ -3,7 +3,7 @@ const NavBar = () => {
         <nav className='sticky top-0 right-0 z-50 w-full h-full'>
             <div className='bg-primary absolute right-0 z-40 p-6 w-72 rounded-b-3xl text-center flex gap-3'>
                 <p>==</p>
-                <h1 className='font-semibold w-full'>Guilad | Web Developer</h1>
+                <h1 className='font-bold w-full'>Guilad | Web Developer</h1>
             </div>
             <div className='bg-accent-2 absolute h-36 right-0 w-20 p-4 rounded-3xl flex justify-center items-end'>
                 <svg width="32px" height="32px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">

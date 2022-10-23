@@ -9,10 +9,10 @@ interface HomeButtonProps {
 }
 
 const HomeButton: React.FC<HomeButtonProps> = ({ title, description, link,color }) => {
-    const style = 'rounded-full absolute inset-0 w-full h-full transition duration-300 ease-out transform  bg-red-300 group-hover:-translate-x-2 group-hover:-translate-y-2' + ' ' + color;
+    const style = 'rounded-full absolute inset-0 w-full h-full transition duration-300 ease-out transform  bg-red-300 group-hover:-translate-x-2 group-hover:-translate-y-2 cursor-none' + ' ' + color;
     return (
-        <div className='relative'>
-            <a href={link} className="relative sm:px-16 py-5 font-bold text-black group px-10">
+        <div className='relative z-50'>
+            <a href={link} className="relative sm:px-16 py-5 font-bold text-black group px-10 ">
                 <span className={style}></span>
                 <span className="absolute inset-0 w-full h-full border-4 border-white rounded-full"></span>
                 <span className="relative font-bold sm:text-lg text-md">{title}</span>

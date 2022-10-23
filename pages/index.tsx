@@ -7,46 +7,100 @@ import HomeLayout from '../layout/layouts/HomeLayout'
 const Home: NextPage = () => {
   const { scrollY } = useScroll();
   const [scroll, setscroll] = useState<number>(0);
+  useEffect(() => {
+      scrollY.onChange((latest) => {
+       if (latest < 950) {
+        setscroll(latest)
+      }
+    });
+  }, [scrollY])
+  // custom cursor
+  const [cursor, setCursor] = useState({
+    x: 0,
+    y: 0,
+  })
+  const [cursorProps, setCursorProps] = useState('default')
 
   useEffect(() => {
-    return scrollY.onChange((latest) => {
-      setscroll(latest)
-    })
-  }, [scrollY])
-
+    const mouseMove = (e: MouseEvent) => {
+      setCursor({
+        x: e.clientX,
+        y: e.clientY,
+      })
+    }
+    window.addEventListener('mousemove', mouseMove)
+    return () => {
+      window.removeEventListener('mousemove', mouseMove)
+    }
+  }, [])
+  const variants = {
+    default: {
+      x: cursor.x -24,
+      y: cursor.y -24,
+      zIndex: 999,
+      backgroundColor: '#fff',
+    },
+    hovered:  {
+      x: cursor.x -24,
+      y: cursor.y -24,
+      zIndex: 30,
+    },
+    text: {
+      backgroundColor: '#fff',
+      x: cursor.x -24,
+      y: cursor.y -24,
+      zIndex: 99,
+      width: 120,
+      height: 120,
+      mixBlendMode: 'difference',
+    }
+  }
   return (
     <HomeLayout >
-      <main className='w-screen h-[1920px]'>
+      <main className='w-screen h-[1920px] flex flex-col scroll-smooth cursor-none'>
+        <motion.div
+        variants={variants}
+        animate= {cursorProps}
+          className='w-12 h-12 rounded-full top-0 left-0 fixed pointer-events-none invisible sm:visible'></motion.div>
         <section className='w-screen'>
-          <div className='absolute top-40 flex w-screen overflow-hidden sm:hidden'>
+          <div className='absolute top-40 flex w-screen overflow-hidden md:hidden'>
             <motion.h1
               initial="hidden"
               animate={{ x: scroll * -6, opacity: 1 }}
-              className='text-9xl md:text-[250px]  font-bold whitespace-nowrap '>I LOVE BUILD THINGS</motion.h1>
+              className='text-9xl md:text-[220px]  font-bold whitespace-nowrap '>I LOVE BUILD THINGS</motion.h1>
           </div>
-          <div className='absolute top-52 flex w-screen overflow-hidden'>
+          <div className='absolute top-48 flex w-screen overflow-hidden' onMouseEnter={() => setCursorProps("text")}
+            onMouseLeave={() => setCursorProps('default')}>
             <motion.h1
               initial="hidden"
-              animate={{ x: scroll * 2, opacity: 1 }}
-              className='text-9xl md:text-[250px]  font-bold whitespace-nowrap text-primary'>I LOVE BUILD</motion.h1>
+              animate={{ x: scroll * 1.6, opacity: 1 }}
+              transition={{
+                x: { type: "spring", stiffness: 100 },
+                duration: 0.8,
+                delay: 0.01,
+              }}
+              className='text-9xl md:text-[220px]  font-bold whitespace-nowrap text-primary hidden md:flex'>I LOVE BUILD</motion.h1>
           </div>
+          <div onMouseEnter={() => setCursorProps("hovered")} onMouseLeave={()=>setCursorProps('default')} >
             <WindowTab />
-          <div className='px-20 relative z-10'>
+          </div>
+          <div className='px-20 relative z-40' onMouseEnter={() => setCursorProps("text")}
+              onMouseLeave={() => setCursorProps('default')}>
             <motion.h1
               initial="hidden"
-              animate={{ x: scroll * -2, opacity: 1 }}
-              className='text-[250px] font-bold whitespace-nowrap tracking-wide absolute top-[528px] text-accent-2 z-50'>THINGS</motion.h1>
-            </div>
-        </section>
-      </main>
-      <main className='w-screen h-screen'>
-        <div className="w-1/2 transition-colors ease-linear shadow-md absolute ">
-          <div className="w-full h-12 rounded-t-lg  bg-base-2 flex justify-end items-center space-x-1.5 px-4">
-            <span className="w-3 h-3 border-2 border-transparent dark:border-green-400 rounded-full bg-green-400 dark:bg-transparent"></span>
-            <span className="w-3 h-3 border-2 border-transparent dark:border-yellow-400 rounded-full bg-yellow-400 dark:bg-transparent"></span>
-            <span className="w-3 h-3 border-2 border-transparent dark:border-red-400 rounded-full bg-red-400 dark:bg-transparent "></span>
+              animate={{ x: scroll * -1.6, opacity: 1 }}
+              transition={{
+                x: { type: "spring", stiffness: 100 },
+                duration: 0.8,
+                delay: 0.01,
+              }}
+              className='hidden sm:flex text-[220px] font-bold whitespace-nowrap tracking-wide absolute top-[528px] text-accent-2'>THINGS</motion.h1>
           </div>
-          <div className="bg-gray-100 dark:bg-gray-700 border-t-0 w-full h-96 rounded-b-lg"></div>
+        </section>
+        <div className='absolute bottom-5 left-1/2 animate-bounce'>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
         </div>
       </main>
     </HomeLayout>
@@ -54,3 +108,4 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
