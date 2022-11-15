@@ -1,6 +1,7 @@
 import { motion, useScroll } from 'framer-motion'
 import type { NextPage } from 'next'
-import { useEffect, useState } from 'react'
+import { SetStateAction, useEffect, useState } from 'react'
+import About from '../layout/components/About'
 import WindowTab from '../layout/components/WindowTab'
 import HomeLayout from '../layout/layouts/HomeLayout'
 
@@ -53,6 +54,15 @@ const Home: NextPage = () => {
       width: 120,
       height: 120,
       mixBlendMode: 'difference',
+    },
+    sText: {
+      backgroundColor: '#fff',
+      x: cursor.x - 24,
+      y: cursor.y - 24,
+      zIndex: 99,
+      width: 120,
+      height: 120,
+      mixBlendMode: 'overlay',
     }
   }
   return (
@@ -100,9 +110,17 @@ const Home: NextPage = () => {
             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>
         </div>
-        <section>
-          <div></div>
-        </section>
+        <div className='h-screen w-screen'></div>
+              <div className='px-20 inline-block z-40 mt-48 w-max'>
+                <h1 className='text-7xl font-bold text-accent'>About Me</h1>
+              </div>  
+        {/*  */}
+              {About(setCursorProps)}
+        {/*  */}
+        <div className='px-20 inline-block z-40 mt-36 w-max text-center'>
+          <h1 className='text-7xl font-bold text-accent'>My Projects</h1>
+        </div> 
+         
       </main>
     </HomeLayout>
   )
