@@ -1,9 +1,10 @@
 import { motion, useScroll } from 'framer-motion'
 import type { NextPage } from 'next'
-import { SetStateAction, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import About from '../layout/components/About'
 import WindowTab from '../layout/components/WindowTab'
 import HomeLayout from '../layout/layouts/HomeLayout'
+import Projects from '../layout/Projects'
 
 const Home: NextPage = () => {
   const { scrollY } = useScroll();
@@ -73,12 +74,15 @@ const Home: NextPage = () => {
           animate={cursorProps}
           className='w-12 h-12 rounded-full top-0 left-0 fixed pointer-events-none invisible sm:visible'></motion.div>
         <section className='w-screen'>
+          {/* Mobiel Title */}
           <div className='absolute top-40 flex w-screen overflow-hidden md:hidden'>
             <motion.h1
               initial="hidden"
               animate={{ x: scroll * -6, opacity: 1 }}
               className='text-9xl md:text-[220px]  font-bold whitespace-nowrap '>I LOVE BUILD THINGS</motion.h1>
           </div>
+          {/* Mobile Title */}
+          {/* Title */}
           <div className='absolute top-48 flex w-screen overflow-hidden' onMouseEnter={() => setCursorProps("text")}
             onMouseLeave={() => setCursorProps('default')}>
             <motion.h1
@@ -104,23 +108,22 @@ const Home: NextPage = () => {
               }}
               className='hidden md:flex text-[220px] font-bold whitespace-nowrap tracking-wide absolute top-[528px] text-accent-2'>THINGS</motion.h1>
           </div>
+          {/* Title */}
         </section>
         <div className='absolute bottom-5 left-1/2 animate-bounce'>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>
         </div>
-        <div className='h-screen w-screen'></div>
-              <div className='px-20 inline-block z-40 mt-48 w-max'>
-                <h1 className='text-7xl font-bold text-accent'>About Me</h1>
+        <div className='h-screen'></div>
+              <div className='px-20 z-40 mt-48 '>
+                <h1 className='text-4xl md:text-7xl font-bold text-accent'>About Me</h1>
               </div>  
-        {/*  */}
-              {About(setCursorProps)}
-        {/*  */}
-        <div className='px-20 inline-block z-40 mt-36 w-max text-center'>
+              <About setCursorProps={setCursorProps} />
+        {/* <div className='px-20 inline-block z-40 mt-36 w-max text-center'>
           <h1 className='text-7xl font-bold text-accent'>My Projects</h1>
         </div> 
-         
+         <Projects name={[]} /> */}
       </main>
     </HomeLayout>
   )
